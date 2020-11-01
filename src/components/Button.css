@@ -1,0 +1,13 @@
+.button {
+  display: inline-flex;
+  width: 25%;
+  flex: 1 0 auto;
+}
+
+.button-orange button {
+  display: inline-flex;
+  width: 25%;
+  flex: 1 0 auto;
+  background-color: #f5923e;
+  color: white;
+}
