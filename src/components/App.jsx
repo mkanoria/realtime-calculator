@@ -15,17 +15,11 @@ const App = () => {
   const [username, setUsername] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  let fetchedInitialResponses = false;
+
   const join = () => {
     if (username !== "") {
       setUsername(username);
-      console.log("responses", responses);
-      // TODO: FIX THISS
-      socket.on("new user", (resp) => {
-        console.log("Got responses", resp);
-        setResponses(resp);
-      });
-      // Needs to update responses here
-      console.log("responses", responses);
       setLoggedIn(true);
     }
   };
@@ -36,7 +30,6 @@ const App = () => {
       { total, equation, setTotal, updateEquation },
       buttonName
     );
-    console.log("Expression is", expression);
     if (expression !== "" && !expression.includes("Invalid Expression!")) {
       socket.emit("message", { user: username, equation: expression });
       setResponses((prevResponses) => {
@@ -50,6 +43,15 @@ const App = () => {
 
   useEffect(() => {
     socket = socketIOClient(ENDPOINT);
+    // If initial responses has not been received, call socket -> new user
+    if (!fetchedInitialResponses) {
+      socket.on("new user", (resp) => {
+        console.log("Got responses", resp);
+        fetchedInitialResponses = true;
+        setResponses(resp);
+      });
+    }
+
     // If new message is broadcast, add it to list of existing responses
     socket.on("new message", (data) => {
       setResponses((prevResponses) => {
