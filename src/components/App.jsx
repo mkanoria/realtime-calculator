@@ -36,7 +36,8 @@ const App = () => {
       { total, equation, setTotal, updateEquation },
       buttonName
     );
-    if (expression !== "") {
+    console.log("Expression is", expression);
+    if (expression !== "" && !expression.includes("Invalid Expression!")) {
       socket.emit("message", { user: username, equation: expression });
       setResponses((prevResponses) => {
         if (prevResponses.length === 10) {
@@ -62,7 +63,7 @@ const App = () => {
 
   if (!loggedIn) {
     return (
-      <div className="component-app">
+      <div className="welcome-screen">
         <Join join={join} setName={setUsername} />
       </div>
     );
@@ -81,6 +82,7 @@ const App = () => {
         <Display
           key={index}
           value={response.user + " calculated " + response.equation}
+          isMessage
         />
       ))}
     </div>

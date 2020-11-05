@@ -1,5 +1,12 @@
+.welcome-screen {
+  height: auto;
+  margin: 100px auto;
+  padding: 20px 20px 9px;
+  border-radius: 5px;
+}
+
 .component-app {
-  width: auto;
+  width: 325px;
   height: auto;
   margin: 100px auto;
   padding: 20px 20px 9px;

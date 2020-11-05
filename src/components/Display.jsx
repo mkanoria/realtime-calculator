@@ -3,7 +3,7 @@ import "./Display.css";
 
 const Display = (props) => {
   return (
-    <div className="component-display">
+    <div className={props.isMessage ? "message-display " : "component-display"}>
       <div>{props.value}</div>
     </div>
   );
