@@ -1,44 +1,33 @@
+import { evaluate, format } from "mathjs";
 
-function isNumber(buttonName) {
-    return !isNaN(buttonName)
-}
-
-// Expecting object of the format
-//  {
-//     total : Number,
-//     nextVal: Number,
-//     operation: String,
-// }
-export default function calculate (obj, buttonName) {
-    if (buttonName == "AC") {
-        return {
-            total : 0,
-            nextVal : 0,
-            operation : ""
-        }
+export default function calculate(obj, buttonName) {
+  if (buttonName === "CLR") {
+    obj.updateEquation([]);
+    obj.setTotal(0);
+  } else if (buttonName === "DEL") {
+    // Pop off the last added item into the array
+    obj.updateEquation((oldEquation) => oldEquation.slice(0, -1));
+  } else if (buttonName === "=") {
+    // Create expression string
+    let expression = obj.equation.join("");
+    // Reset equation
+    obj.updateEquation([]);
+    // Evaluate expression
+    let result;
+    try {
+      result = evaluate(expression);
+      result = format(result, { precision: 14 });
+    } catch (err) {
+      result = "Invalid Expression!";
     }
-    // If current button pressed was a number
-    if (isNumber(buttonName)) {
-        if (buttonName == "0" && obj.nextVal == "0") {
-            return {}
-        }
-        // TODO: If there's an operation
-        // if (obj.operation) {
-        //     if (obj.nextVal) {
-        //         return {
-                    
-        //         }
-        //     }
-        // }
-        return {
-            total : 0,
-            nextVal : 0,
-            operation : ""
-        }
-    }
-    return {
-        total : 0,
-        nextVal : 0,
-        operation : ""
-    }
+    obj.setTotal(result);
+    // Make expression prettier for display
+    expression = expression.concat("=", result);
+    return expression;
+  } else {
+    // If there's more elements being added to the equation, then reset the total
+    obj.updateEquation((oldEquation) => [...oldEquation, buttonName]);
+    obj.setTotal(0);
+  }
+  return "";
 }

@@ -3,7 +3,7 @@ import "./Display.css";
 
 const Display = (props) => {
   return (
-    <div className="display">
+    <div className="component-display">
       <div>{props.value}</div>
     </div>
   );

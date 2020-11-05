@@ -7,18 +7,18 @@ const ButtonGrid = (props) => {
     props.clickHandler(buttonName);
   };
   return (
-    <div className="button-grid">
+    <div className="component-button-grid">
       <div>
-        <Button value="Clear" clickHandler={clickHandler} />
-        <Button value="(-)" clickHandler={clickHandler} />
+        <Button value="CLR" clickHandler={clickHandler} />
+        <Button value="^" clickHandler={clickHandler} />
         <Button value="%" clickHandler={clickHandler} />
-        <Button value="÷" clickHandler={clickHandler} isOperation />
+        <Button value="/" clickHandler={clickHandler} isOperation />
       </div>
       <div>
         <Button value="7" clickHandler={clickHandler} />
         <Button value="8" clickHandler={clickHandler} />
         <Button value="9" clickHandler={clickHandler} />
-        <Button value="x" clickHandler={clickHandler} isOperation />
+        <Button value="*" clickHandler={clickHandler} isOperation />
       </div>
       <div>
         <Button value="4" clickHandler={clickHandler} />
@@ -35,6 +35,7 @@ const ButtonGrid = (props) => {
       <div>
         <Button value="0" clickHandler={clickHandler} />
         <Button value="." clickHandler={clickHandler} />
+        <Button value="DEL" clickHandler={clickHandler} />
         <Button value="=" clickHandler={clickHandler} isOperation />
       </div>
     </div>

@@ -1,4 +1,4 @@
-.button-grid {
+.component-button-grid {
   background-color: #858694;
   display: flex;
   flex-direction: row;
@@ -6,7 +6,7 @@
   flex: 1 0 auto;
 }
 
-.button-grid > div {
+.component-button-grid > div {
   width: 100%;
   margin-bottom: 1px;
   flex: 1 0 auto;

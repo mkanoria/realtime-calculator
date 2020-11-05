@@ -7,7 +7,11 @@ const Button = (props) => {
   };
 
   return (
-    <div className={props.isOperation ? "button-orange" : "button"}>
+    <div
+      className={
+        props.isOperation ? "component-button orange" : "component-button"
+      }
+    >
       <button onClick={handleClick}>{props.value}</button>
     </div>
   );
