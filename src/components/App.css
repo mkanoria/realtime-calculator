@@ -1,6 +1,7 @@
 .component-app {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100%;
+  width: auto;
+  height: auto;
+  margin: 100px auto;
+  padding: 20px 20px 9px;
+  border-radius: 5px;
 }

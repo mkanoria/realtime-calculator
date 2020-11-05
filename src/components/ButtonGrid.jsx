@@ -36,7 +36,7 @@ const ButtonGrid = (props) => {
         <Button value="0" clickHandler={clickHandler} />
         <Button value="." clickHandler={clickHandler} />
         <Button value="DEL" clickHandler={clickHandler} />
-        <Button value="=" clickHandler={clickHandler} isOperation />
+        <Button value="=" clickHandler={clickHandler} eval />
       </div>
     </div>
   );

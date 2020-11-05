@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
 
-/* Basic reset */
+/* Basic setup */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
   /* Text styling */
-  font: 400 46px "Quicksand", sans-serif;
+  font: 22px "Quicksand", sans-serif;
   color: #fff;
   text-align: center;
 }
@@ -35,13 +35,13 @@ html {
 
 @media (min-width: 500px) and (min-height: 500px) {
   html {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 600px) and (min-height: 600px) {
   html {
-    font-size: 40px;
+    font-size: 20px;
   }
 }
 

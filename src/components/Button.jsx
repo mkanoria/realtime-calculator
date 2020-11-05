@@ -5,13 +5,16 @@ const Button = (props) => {
   const handleClick = () => {
     props.clickHandler(props.value);
   };
-
+  let classname = "";
+  if (props.eval) {
+    classname = "component-button eval";
+  } else if (props.isOperation) {
+    classname = "component-button orange";
+  } else {
+    classname = "component-button";
+  }
   return (
-    <div
-      className={
-        props.isOperation ? "component-button orange" : "component-button"
-      }
-    >
+    <div className={classname}>
       <button onClick={handleClick}>{props.value}</button>
     </div>
   );
