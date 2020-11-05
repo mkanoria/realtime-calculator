@@ -16,7 +16,6 @@ export default function calculate(obj, buttonName) {
     let result;
     try {
       result = evaluate(expression);
-      console.log("Result is", result);
       result = format(result, { precision: 14 });
     } catch (err) {
       result = "Invalid Expression!";

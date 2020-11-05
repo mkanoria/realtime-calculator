@@ -5,8 +5,8 @@ import Join from "./Join";
 import calculate from "../operations/calculate";
 import "./App.css";
 import socketIOClient from "socket.io-client";
+import { ENDPOINT } from "../secrets";
 
-const ENDPOINT = "http://127.0.0.1:4001";
 let socket;
 const App = () => {
   const [total, setTotal] = useState(0);
@@ -46,7 +46,6 @@ const App = () => {
     // If initial responses has not been received, call socket -> new user
     if (!fetchedInitialResponses) {
       socket.on("new user", (resp) => {
-        console.log("Got responses", resp);
         fetchedInitialResponses = true;
         setResponses(resp);
       });
