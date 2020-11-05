@@ -11,14 +11,14 @@ It's available at https://realtime-calcc.herokuapp.com/
 ## Front End
 
 Move to the client directory  
-`cd client`
+`cd client`  
 Install all dependencies with `npm install`  
 Run the app with `yarn start`
 
 ## Server
 
 Move to the server directory  
-`cd server`
+`cd server`  
 Run `node app.js`
 
 This runs a server at `localhost:4001` - the port can be changed as desired
