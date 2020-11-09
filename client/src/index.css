@@ -47,6 +47,6 @@ html {
 
 @media (min-width: 800px) and (min-height: 800px) {
   html {
-    font-size: 50px;
+    font-size: 20px;
   }
 }
