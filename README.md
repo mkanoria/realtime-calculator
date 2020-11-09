@@ -4,7 +4,8 @@ This is a realtime calculator that can be used to share calculations with friend
 
 # Hosting
 
-It's available at https://realtime-calcc.herokuapp.com/
+It's available at https://realtime-calcc.herokuapp.com/  
+Heroku restarts servers every 24 hours, so the previous calculations which are stored on the backend are lost. This can be fixed by backing up calculations to a database
 
 # Building locally
 
